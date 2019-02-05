@@ -58,7 +58,9 @@ To move forward to the next end of **WORD**, use `shift` + `e`.
   * Note: This will take you to the end of the current **WORD**.
   * Note: Word in this instance means the next non-white-space character.
 
-### Intermediate Motions: Fine traversal of the file (Normal Mode)
+## Intermediate Vim Usage
+
+### Motions: Fine traversal of the file (Normal Mode)
 
 * The sequence `[n]f<x>` will move the cursor forward to the [nth] <x>.
   * Note: The cursor will be on the `x`.
@@ -69,7 +71,7 @@ To move forward to the next end of **WORD**, use `shift` + `e`.
 * The sequence `[n]T<x>` will move the cursor backward to the [nth] <x>.
   * Note: The cursor will be on the character before the `x`.
 
-### Intermediate Searching Functions
+### Searching Functions
 
 * To search forward from the top of the file for a string, enter `/` followed by your string.
   * Note: Pressing `n` will take you to the next match to your search.
