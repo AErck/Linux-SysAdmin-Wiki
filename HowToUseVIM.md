@@ -1,12 +1,12 @@
-## How to Use Vim
+# How to Use Vim
 
-### Notes on Vim
+## Notes on Vim
 
 Vim is a "Modal" Text Editor, meaning it has modes, such as **Command**, **Normal**, and **Insert** mode. Vim starts in **Normal** mode when first entering the program.
 
-### Basic Vim Usage
+## Basic Vim Usage
 
-#### Changing Modes
+### Changing Modes
 
 * In **Normal** mode press `i` to enter **Insert** mode to edit the file.
 * In **Insert** mode press `Esc` to enter **Normal**.
@@ -38,7 +38,7 @@ Vim is a "Modal" Text Editor, meaning it has modes, such as **Command**, **Norma
 
 #### While in Insert mode:
 
-#### Motion Basics: Traversing the file (Normal Mode)
+### Motion Basics: Traversing the file (Normal Mode)
 
 * `h`, `j`, `k`, and `l` will move your cursor left a character, down a line, up a line, and right a character respectivly.
   * Note: Adding a number infront of the letter, such as `4`, will move the cursor that number of characters or lines.
@@ -58,7 +58,7 @@ To move forward to the next end of **WORD**, use `shift` + `e`.
   * Note: This will take you to the end of the current **WORD**.
   * Note: Word in this instance means the next non-white-space character.
 
-#### Intermediate Motions: Fine traversal of the file (Normal Mode)
+### Intermediate Motions: Fine traversal of the file (Normal Mode)
 
 * The sequence `[n]f<x>` will move the cursor forward to the [nth] <x>.
   * Note: The cursor will be on the `x`.
@@ -69,7 +69,7 @@ To move forward to the next end of **WORD**, use `shift` + `e`.
 * The sequence `[n]T<x>` will move the cursor backward to the [nth] <x>.
   * Note: The cursor will be on the character before the `x`.
 
-#### Intermediate Searching Functions
+### Intermediate Searching Functions
 
 * To search forward from the top of the file for a string, enter `/` followed by your string.
   * Note: Pressing `n` will take you to the next match to your search.
@@ -81,6 +81,6 @@ To move forward to the next end of **WORD**, use `shift` + `e`.
   * Note: This is a bounded search, meaning only exact matches for the search string will show up. `For` will not find `Forward` for example.
   * Note: Use `g*` for an unbounded search. This will find `Forward` when searching for `For`.
  * To search backward for the word currently under the cursor, enter `#`.
-  * Note: This is a bounded search, meaning only exact matches for the search string will show up. `For` will not find `Forward` for example.
-  * Note: Use `g#` for an unbounded search. This will find `Forward` when searching for `For`.
+   * Note: This is a bounded search, meaning only exact matches for the search string will show up. `For` will not find `Forward` for example.
+    * Note: Use `g#` for an unbounded search. This will find `Forward` when searching for `For`.
  
