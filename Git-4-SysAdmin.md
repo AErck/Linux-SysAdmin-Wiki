@@ -39,13 +39,24 @@ Once done, start up the etc repo from the /etc directory.
 	
 	$ sudo etckeeper init
 	
-It is recommended to .gitignore vim swap files by adding an entry for "*.swp" files
+It is recommended to .gitignore vim swap files by adding an entry for "*.swp" files, typically in default config already.
 	
 	$ sudo vim .gitignore
 	
-Make the first commit
+Make the first commit, this is required to get etckeeper running automatically
 	
 	$ sudo etckeeper commit “Initial commit of /etc”
+	
+Pushing to a remote repo, make sure it is private or sanitized if repo is public. First we need to add the remote repo
+
+Login as root, then from the /etc/.git directory, add your remote Github repository:
+
+	# git remote add origin https://github.com/user/repo.git
+	
+Next configure etckeeper to use provided web hook
+Edit the PUSH_REMOTE option in /etc/etckeeper/etckeeper.conf, with the name of the remote repository you want etckeeper to push to. For example:
+
+	PUSH_REMOTE="origin"
 
 # Creating a local repository
 We will start with a new directory for the project and initialize the repository from that directory
