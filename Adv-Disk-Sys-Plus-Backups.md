@@ -1,4 +1,5 @@
 [aerck@onyx ~]$ lsblk -f
+
 NAME            FSTYPE      LABEL UUID                                   MOUNTPOINT
 sda                                                                      
 ├─sda1          xfs               179b4d6b-abb7-422c-b502-11a50404a895   /boot
@@ -13,6 +14,7 @@ sr0
 
 
 [aerck@onyx ~]$ df -h
+
 Filesystem               Size  Used Avail Use% Mounted on
 /dev/mapper/centos-root   45G   23G   22G  51% /
 devtmpfs                 3.9G     0  3.9G   0% /dev
@@ -26,6 +28,7 @@ tmpfs                    789M     0  789M   0% /run/user/1001
 
 
 [aerck@onyx ~]$ sudo vgs
+
   VG     #PV #LV #SN Attr   VSize  VFree
   centos   1   3   0 wz--n- 73.50g    0 
 
@@ -162,4 +165,27 @@ Now we will create three compressed versions of this file with GZip, BZip2, and 
 	$ sudo tar --xattrs --xz -cvpf etc.tar.xz /etc
 We can extract the tar file with
 	$ sudo tar --xattrs -xvpf etc.tar -C <directory-to-extract-into>
+	
+# Expanding Disk Partitions
 
+### The following must be run as the root user.
+
+This command works if you have sd* volumes, like here:
+
+$ lsblk
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+fd0           2:0    1    4K  0 disk 
+sda           8:0    0   40G  0 disk 
+├─sda1        8:1    0    1G  0 part /boot
+└─sda2        8:2    0   19G  0 part 
+  ├─centos-root 253:0    0   17G  0 lvm  /
+  └─centos-swap 253:1    0    2G  0 lvm  [SWAP]
+sr0          11:0    1 1024M  0 rom
+
+In this setup, our sda disk has unallocated space that we want the root partition to use.	
+
+### Command One-Line
+
+parted ---pretend-input-tty /dev/sda resizepart 2 100%;
+partx -u /dev/sda; pvresize /dev/sda2;
+lvextend -r /dev/centos/root /dev/sda2
