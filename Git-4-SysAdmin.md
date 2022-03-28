@@ -39,7 +39,7 @@ Once done, start up the etc repo from the /etc directory.
 	
 	$ sudo etckeeper init
 	
-It is recommended to .gitignore vim swap files
+It is recommended to .gitignore vim swap files by adding an entry for "*.swp" files
 	
 	$ sudo vim .gitignore
 	
