@@ -3,28 +3,36 @@ Global configuration for git is stored in /etc/gitconfig
 Project configuration for git is stored in /path/to/project/.git/config 
 
 We can make changes to the config on the system level with
+	 
 	 `$ git config --system`
 
 Changes to the user level are made with
+	
 	`$ git config --global`
 
 Changes to the local project are made with
+	
 	`$ git config (--local)`
 
 We will first setup user configuration, and if you are pushing to GitHub, your username and email should match what you use on that site.
 
-	`$ git config --global user.name “AErck”
+`$ git config --global user.name “AErck”
 	$ git config --global user.email “aerck42@gmail.com”
 	$ git config --global core.editor “vim”
 	$ git config --global color.ui true`
 
 # Manage Linux System confit files with etckeeper 
 The software etckeeper uses git to track system configurations and tracks file metadata.
+	
 	`$ sudo yum install -y epel-release
 	$ sudo yum install -y etckeeper`
+
 Let’s edit the conf file for etckeeper
+	
 	`$ sudo vim /etc/etckeeper/etckeeper.conf`
+
 By default, etckeeper commits once a day and before package installations automatically. You will need to enable this feature.
+	
 	`$ sudo systemctl enable etckeeper.timer`
 Once done, start up the etc repo from the /etc directory.
 	`$ sudo etckeeper init`
