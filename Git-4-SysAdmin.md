@@ -264,7 +264,7 @@ This repo can now be cloned from any other host with network connection to this 
 # Using SSH keys for Git repo authentication!
 From the git client you will want to create the ssh keys and share them to the git server
 	
-	$ ssh-keygen-t rsa -b 4096 -C “aerck42@gmail.com”
+	$ ssh-keygen -t rsa -b 4096 -C “aerck42@gmail.com”
 	
 You can use the defaults for file name and passwords here
 Now share the key
@@ -277,17 +277,23 @@ We can also use this ssh key pair with GitHub
 	
 Copy the printed key to clipboard
 Log in to GitHub, open settings, and go to “SSH and GPG keys”
-From the git client, set the repo to use SSH remotes instead of HTTPS
+Add a new key, name it, and past in the ssh key from the git client. Make sure it is saved.
+
+Now from the git client, set the repo to use SSH remotes instead of HTTPS
 	
 	$ git remote -v
 	
-You will see that git is using https here. We need to change that.
+You will see that git is using https here. We need to change that with the following command
 
 	$ git remote set-url origin <ssh-github-link>
 	
 Verify with
 	
 	$ git remote -v
+	
+Now we can push our files to the origin
+	
+	$ git push origin master
 
 # Strategies for managing system files
 System Administration Caveats
