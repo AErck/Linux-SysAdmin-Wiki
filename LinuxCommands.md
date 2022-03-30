@@ -6,7 +6,7 @@
 
 To find out where a particular package is installed locally you can use the following:
 
-  rpm -ql <packagename>
+  `rpm -ql <packagename>`
   
 Typical output for this will look similar to this:
   
